@@ -45,7 +45,7 @@ class PriceChecker(commands.Cog):
         return num if not remainder else num - remainder + 5_000
 
     @commands.slash_command(guild_ids=TEST_SERVERS, name="tokens", description="Price Checker for Token Farming services")
-    async def tokens(self, ctx, amount: discord.Option(str)):
+    async def tokens(self, ctx, amount: discord.Option(str, description="Amount of tokens to be purchased (e.g. 40k, 250k, 1.5m)")):
         # parsing k/m / verifying correct input
         token_num = str_to_int(amount)
         # send error if invalid input
@@ -157,9 +157,9 @@ class PriceChecker(commands.Cog):
         while True:
             tasks = [
                 asyncio.create_task(self.bot.wait_for(
-                    "raw_reaction_add", check=check, timeout=30)),
+                    "raw_reaction_add", check=check, timeout=60)),
                 asyncio.create_task(self.bot.wait_for(
-                    "raw_reaction_remove", check=check, timeout=30))
+                    "raw_reaction_remove", check=check, timeout=60))
             ]
 
             done, pending = await asyncio.wait(
@@ -173,7 +173,7 @@ class PriceChecker(commands.Cog):
                     if str(payload.emoji) == emojis[k]:
                         values[k] = "ADD" in payload.event_type
 
-                buffs = [BUFF_MAP[k] for k in emojis if values[k]]
+                buffs = [BUFF_MAP[k]["name"] for k in emojis if values[k]]
                 dxpw = DXPW or "DXPW" in buffs
 
                 if dxpw:

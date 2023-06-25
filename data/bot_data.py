@@ -47,19 +47,31 @@ EMOJIS = {
 }
 
 BUFF_MAP = {
-    "XP_cards": "2.5x XP Cards",  # no premium
-    "DGH_Token": "Double Tokens",  # no premium
-    "DGH_DXPW": "DXPW",  # no iron
-    "knowledge_bomb": "Knowledge Bomb",  # no iron
-    "pulsecore": "Pulse Cores",  # no iron
-    "vex": "Clan Avatar",  # no iron
-    "raf": "RAF Scroll",  # no iron
-    "sceptre_of_enchantment": "Sceptre",  # no iron
-    "coin_of_enchantment": "Coin",
-    # "premierartefact": "Premier Artefact",  # only 1 hr a day, not useful for calculations
-    "yak_track": "Yak Track",  # no iron
-    "outfit": "Outfit",
-    "torstol_sticks": "Torstol Sticks",
-    "inspire_love": "Inspire Love",
+    "XP_cards": {"name": "2.5x XP Cards",
+                 "value": f"+150% XP"},  # no premium
+    "DGH_Token": {"name": "Double Tokens",
+                  "value": f"+100% Tokens"},  # no premium
+    "DGH_DXPW": {"name": "DXPW",
+                 "value": f"2x XP (multiplicative)"},  # no iron
+    "knowledge_bomb": {"name": "Knowledge Bomb",
+                       "value": f"+50% XP"},  # no iron
+    "pulsecore": {"name": "Pulse Cores",
+                  "value": f"+10% XP"},  # no iron
+    "vex": {"name": "Clan Avatar",
+            "value": f"+3-6% XP"},  # no iron
+    "raf": {"name": "RAF Scroll",
+            "value": f"+50% XP"},  # no iron
+    "sceptre_of_enchantment": {"name": "Sceptre",
+                               "value": f"+2/4% XP"},  # no iron
+    "coin_of_enchantment": {"name": "Coin",
+                            "value": f"+1/2% XP"},
+    "yak_track": {"name": "Yak Track",
+                  "value": f"+0%-20%"},  # no iron
+    "outfit": {"name": "Outfit",
+               "value": f"+7% XP and Tokens"},
+    "torstol_sticks": {"name": "Torstol Sticks",
+                       "value": f"+2% XP"},
+    "inspire_love": {"name": "Inspire Love",
+                     "value": f"+2% XP"},
 }
 FLOOR_THEMES = {}
