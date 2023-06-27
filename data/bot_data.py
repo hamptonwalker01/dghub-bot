@@ -11,7 +11,9 @@ COLOURS = {
     'Occult': 0x674188,
     'Warped': 0xB70404,
     'Regular': 0x3498DB,
-    'Premium': 0x3F8434
+    'Premium': 0x3F8434,
+    'subs': 0x3F8434,
+    'fc': 0x3498DB,
 }
 
 LINKS = {

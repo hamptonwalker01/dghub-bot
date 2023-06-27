@@ -13,6 +13,15 @@ class About(commands.Cog):
         self.link = "https://discord.com/invite/FfPxUhN"
         self.logo = "https://cdn.discordapp.com/icons/679134698059989003/a_a220830225d485901d6877854f532970.gif?size=1024"
 
+    # owner command to print roles of a specific server (DGHub)
+    @commands.slash_command(guild_ids=[TEST_SERVERS[0]], name="get_roles", description="prints roles & id to terminal")
+    @commands.is_owner()
+    async def get_roles(self, ctx, id: discord.Option(str, description="Guild ID to steal roles from", default=679134698059989003)):
+        # get dg hub guild/passed guild id
+        guild: discord.Guild = self.bot.get_guild(id)
+        for r in guild.roles:
+            print(r.name, r.id)
+
     @commands.slash_command(guild_ids=TEST_SERVERS, name="about", description="Provides basic information about the DGHub server.")
     async def about(self, ctx):
         dgh: discord.Guild = self.bot.get_guild(

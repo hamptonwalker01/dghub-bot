@@ -52,7 +52,8 @@ class MyBot(commands.Bot):
 
 def main():
     load_dotenv()
-    cogs = ["src.cogs.prices", "src.cogs.about", "src.cogs.help"]
+    cogs = ["src.cogs.prices", "src.cogs.about",
+            "src.cogs.help", "src.cogs.feedback"]
     token = getenv('TOKEN')
     intents = discord.Intents(
         messages=True, guilds=True, presences=True, reactions=True, members=True)
