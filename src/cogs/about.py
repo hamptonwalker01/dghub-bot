@@ -13,7 +13,7 @@ class About(commands.Cog):
         self.link = "https://discord.com/invite/FfPxUhN"
         self.logo = "https://cdn.discordapp.com/icons/679134698059989003/a_a220830225d485901d6877854f532970.gif?size=1024"
 
-    @commands.slash_command(guild_ids=TEST_SERVERS, name="about", description="Provides basic information about the server")
+    @commands.slash_command(guild_ids=TEST_SERVERS, name="about", description="Provides basic information about the DGHub server.")
     async def about(self, ctx):
         dgh: discord.Guild = self.bot.get_guild(
             679134698059989003)  # get dg hub guild

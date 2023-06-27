@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 from data.bot_data import TEST_SERVERS, COLOURS, BUFF_MAP, EMOJIS
 # manually building this because walk_commands() only returns help
-cmds = ["pc", "tokens", "guide"]
+cmds = ["pc", "tokens", "guide", "about"]
 
 
 class CustomHelp(commands.Cog):
@@ -31,11 +31,18 @@ class CustomHelp(commands.Cog):
     async def help(self,
                    ctx: discord.AutocompleteContext,
                    command: discord.Option(str, description="Choose a command to learn more about", choices=cmds, default=None)):
-        # self.get_dgh_info()
         if not command:
             embed = self.default_help()
             await ctx.respond(embed=embed)
         elif command == "guide":
+            cmd = self.bot.get_application_command(command).to_dict()
+            embed = discord.Embed(
+                title=f"**/help {cmd['name']}**",
+                description=f"**About /{cmd['name']}**: *{cmd['description']}\n\n...what else do you expect*?",
+                colour=COLOURS["default"]
+            )
+            await ctx.respond(embed=embed)
+        elif command == "about":
             cmd = self.bot.get_application_command(command).to_dict()
             embed = discord.Embed(
                 title=f"**/help {cmd['name']}**",
