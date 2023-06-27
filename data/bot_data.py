@@ -44,6 +44,11 @@ EMOJIS = {
             "coin_of_enchantment": "<:coin_of_enchantment:977301191136522292>",
         }
     },
+    "about": {
+        "bot": "<:bot:735442459991212043>",
+        "online": "<:status_online:719731694168702996>",
+        "offline": "<:status_offline:719731682294366319>",
+    }
 }
 
 BUFF_MAP = {

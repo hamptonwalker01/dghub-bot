@@ -33,12 +33,6 @@ class MyBot(commands.Bot):
     async def on_ready(self):
         print(f"We have logged in as {self.user}")
 
-    # to be implemented for role synchronization in the future
-    # async def on_member_update(self, before: discord.Member, after: discord.Member):
-    #     print(before, after)
-    #     if before.roles != after.roles:
-    #         print(before.roles, after.roles)
-
     def global_commands(self):
         @self.slash_command(name="guide", description="Provides you with a link to DGHub's Dungoneering guide.")
         async def guide(ctx):
@@ -58,9 +52,10 @@ class MyBot(commands.Bot):
 
 def main():
     load_dotenv()
-    cogs = ["src.cogs.prices", "src.cogs.roles", "src.cogs.help"]
+    cogs = ["src.cogs.prices", "src.cogs.about", "src.cogs.help"]
     token = getenv('TOKEN')
-    intents = discord.Intents.default()
-    intents.members = True
+    intents = discord.Intents(
+        messages=True, guilds=True, presences=True, reactions=True, members=True)
+    intents.message_content = True
     bot = MyBot('/',  intents, TEST_SERVERS, cogs)
     bot.run(token)

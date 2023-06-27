@@ -31,6 +31,7 @@ class CustomHelp(commands.Cog):
     async def help(self,
                    ctx: discord.AutocompleteContext,
                    command: discord.Option(str, description="Choose a command to learn more about", choices=cmds, default=None)):
+        # self.get_dgh_info()
         if not command:
             embed = self.default_help()
             await ctx.respond(embed=embed)
@@ -81,8 +82,8 @@ class CustomHelp(commands.Cog):
             cards, iron, prem = [EMOJIS["pc"][k] for k in EMOJIS["pc"]]
             emojis = cards | (iron | prem)
             title = "**Boosts**"
-            value = f"*React to the specific emoji to receive said boost\n"
-            value += "some are incompatible, such as dxp + bomb or yak*.\n\n"
+            value = f"*React to the specific emoji to receive said boost.\n"
+            value += "Some are incompatible, such as dxp + bomb or yak*.\n\n"
             for k, v in BUFF_MAP.items():
                 emoji = emojis[k]
                 value += f"{emoji} {v['name']}: {v['value']}\n"

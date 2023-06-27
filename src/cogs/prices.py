@@ -175,7 +175,6 @@ class PriceChecker(commands.Cog):
 
                 buffs = [BUFF_MAP[k]["name"] for k in emojis if values[k]]
                 dxpw = DXPW or "DXPW" in buffs
-
                 if dxpw:
                     buffs = [buff for buff in buffs if buff not in [
                         "Knowledge Bomb", "Yak Track"]]
@@ -189,7 +188,7 @@ class PriceChecker(commands.Cog):
                     if xp_cards:
                         token_cards = True
                         if "Double Tokens" not in buffs:
-                            buffs.append("Double Tokens")
+                            buffs.insert(0, "Double Tokens")
                     else:
                         token_cards = "Double Tokens" in buffs
 
